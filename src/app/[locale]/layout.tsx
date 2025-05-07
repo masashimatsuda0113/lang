@@ -7,43 +7,47 @@ import './globals.scss';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+// このページの設定を定義します
 type Props = {
-  children: ReactNode;
-  params: Promise<{locale: Locale}>;
+  children: ReactNode;  // ページの中身
+  params: Promise<{locale: Locale}>;  // 言語の設定
 };
 
-
+// どの言語のページを作るか決めます
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
 }
 
+// ページのタイトルなどの情報を設定します
 export async function generateMetadata(props: Omit<Props, 'children'>) {
   const {locale} = await props.params;
 
   const t = await getTranslations({locale, namespace: 'LocaleLayout'});
 
   return {
-    title: t('title')
+    title: t('title')  // ページのタイトルを設定
   };
 }
 
+// メインのレイアウトを作ります
 export default async function LocaleLayout({children, params}: Props) {
-  // Ensure that the incoming `locale` is valid
   const {locale} = await params;
+  // 設定された言語が正しいかチェックします
   if (!hasLocale(routing.locales, locale)) {
-    notFound();
+    notFound();  // 間違った言語の場合は「ページが見つかりません」と表示
   }
 
-  // Enable static rendering
+  // 言語の設定を保存します
   setRequestLocale(locale);
 
+  // ページの見た目を作ります
   return (
     <html lang={locale}>
       <body>
         <NextIntlClientProvider>
-        <Header />
-          {children}
-          <Footer />
+          <Header />  {/* ページの上部に表示する部分 */}
+          {children}  {/* ページのメインの内容 */}
+          <Footer />  {/* ページの下部に表示する部分 */}
         </NextIntlClientProvider>
       </body>
     </html>

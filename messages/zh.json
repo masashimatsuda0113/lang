@@ -1,0 +1,157 @@
+{
+  "HomePage": {
+    "hero": {
+      "title": "照亮地域与技术的专业团队",
+      "description": "从办公室、工厂和设施的电气工作到安全与通信基础设施。\n我们提供安全可靠的施工服务，主要集中在关东地区。",
+      "cta": {
+        "consultation": "咨询与报价",
+        "careers": "查看招聘信息",
+        "works": "查看施工实绩"
+      }
+    },
+    "services": {
+      "title": "支持工事和服务列表",
+      "items": {
+        "electrical": {
+          "title": "一般电气工作",
+          "description": "分电盘、照明、插座等，支持建筑物基本设施的可靠施工"
+        },
+        "security": {
+          "title": "防犯设备工作",
+          "description": "ITV摄像头、入退室管理系统等，支持防犯和监控的强化"
+        },
+        "network": {
+          "title": "LAN和网络工作",
+          "description": "办公室和设施的舒适通信环境，支持无线LAN和电话线"
+        },
+        "fiber": {
+          "title": "光缆融接和测量工作",
+          "description": "高速通信的基础，从融接和测量到一整套光缆施工"
+        }
+      },
+      "cta": "查看服务详情"
+    },
+    "works": {
+      "title": "施工实绩",
+      "description": "工厂、办公室、商店等，在广泛现场积累的经验和信任。请也看看施工前后的情况。",
+      "cta": "查看所有实绩"
+    },
+    "recruit": {
+      "title": "我们正在招聘可以一起成长的人！",
+      "description": "我们提供资格考试支持、培训制度。想在手边找到工作的人，请随时联系我们。",
+      "cta": "查看招聘信息"
+    },
+    "news": {
+      "title": "最新新闻和信息",
+      "description": "我们正在报告公司活动、施工报告和招聘的最新信息。",
+      "cta": "查看更多"
+    },
+    "strengths": {
+      "title": "为什么选择Willnet",
+      "description": "有资格者众多・创业多年・灵活的一站式支持。我们拥有能够应对关东地区多样现场的技术和经验。",
+      "items": {
+        "technology": {
+          "title": "可靠的技术实力",
+          "description": "由有资格者施工・细致的应对"
+        },
+        "flexibility": {
+          "title": "灵活的应对能力",
+          "description": "对任何场所，无论是法人还是个人，提出最佳解决方案"
+        },
+        "experience": {
+          "title": "可靠的经验",
+          "description": "多种现场・施工经验"
+        }
+      }
+    },
+    "contact": {
+      "title": "随时联系我们",
+      "description": "关于施工、报价、招聘的咨询，请随时联系我们。",
+      "cta": "联系表单"
+    }
+  },
+  "ServicesPage": {
+    "hero": {
+      "title": "威尔网络服务",
+      "description": "在电气、通信和安全领域提供可靠的技术和速度。"
+    },
+    "services": {
+      "electrical": {
+        "title": "一般电气工程",
+        "catch": "每根电线中的可靠性。",
+        "description": "从配电盘、照明和插座到应急电源系统，我们以可靠的技术支持住宅、办公室和工厂的电气工程。"
+      },
+      "security": {
+        "title": "安防系统和闭路电视安装",
+        "catch": "用技术保护，确保安心。",
+        "description": "我们提供并安装安防设备，包括闭路电视摄像头、门禁系统（IC卡、生物识别）、安防传感器和报警系统，以保护您的设施。"
+      },
+      "network": {
+        "title": "局域网和网络安装",
+        "catch": "用不间断的网络最大化效率。",
+        "description": "我们通过局域网布线（有线和无线）、Wi-Fi接入点安装、路由器和集线器配置以及网络设备实施来支持办公室IT基础设施。"
+      },
+      "fiber": {
+        "title": "光纤安装和熔接",
+        "catch": "以精确支持高速通信。",
+        "description": "我们提供高精度服务，包括光纤安装、熔接、OTDR测量以及为电信公司和企业的网络建设。"
+      }
+    },
+    "strengths": {
+      "title": "威尔网络的优势",
+      "description": "我们所有服务共有的主要优势。",
+      "items": {
+        "qualification": {
+          "title": "众多合格人员",
+          "description": "由具有国家认证的专业人员执行工作。"
+        },
+        "onestop": {
+          "title": "一站式服务",
+          "description": "从设计到施工和维护的全面支持。"
+        },
+        "local": {
+          "title": "本地化服务",
+          "description": "在千叶和关东地区的丰富经验。"
+        }
+      }
+    },
+    "area": {
+      "title": "服务区域",
+      "description": "我们服务整个关东地区，重点在千叶县。"
+    }
+  },
+  "NewsPage": {
+    "title": "新闻列表"
+  },
+  "NewsDetailPage": {
+    "title": "新闻详情"
+  },
+  "LocaleLayout": {
+    "title": "next-intl Beispiel"
+  },
+  "WorksPage": {
+    "title": "施工实绩",
+    "catch": "以可靠的技术和信任支持您的项目。",
+    "filters": {
+      "category": "类别",
+      "area": "地区",
+      "all": "全部"
+    },
+    "viewDetails": "查看详情"
+  },
+  "WorkDetail": {
+    "basicInfo": "基本信息",
+    "period": "施工期间",
+    "area": "施工区域",
+    "category": "类别",
+    "techPoint": "技术要点",
+    "description": "详细说明",
+    "gallery": "相关照片",
+    "backToList": "返回列表"
+  },
+  "ContactCTA": {
+    "title": "随时联系我们",
+    "description": "关于施工、报价和招聘的咨询，请使用下面的表单或致电我们。",
+    "cta": "联系表单"
+  }
+}

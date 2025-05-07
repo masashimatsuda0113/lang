@@ -1,5 +1,6 @@
-import Image from 'next/image';
-import styles from './recruit.module.scss';
+import Image from "next/image";
+import styles from "./recruit.module.scss";
+import Link from "next/link";
 
 export default function RecruitPage() {
   return (
@@ -14,26 +15,53 @@ export default function RecruitPage() {
           height={400}
         />
         <h2>一緒に、未来をつくろう。</h2>
-        <p>ウィルネットでは、若い仲間を積極採用中！未経験から始められる環境です。</p>
+        <p>
+          ウィルネットでは、若い仲間を積極採用中！未経験から始められる環境です。
+        </p>
       </section>
 
       <section className={styles.section}>
         <h2>1日の仕事の流れ</h2>
         <ul className={styles.timeline}>
-          <li><strong>8:00</strong> 出社・朝礼・準備</li>
-          <li><strong>9:00</strong> 現場作業開始</li>
-          <li><strong>12:00</strong> 昼休憩</li>
-          <li><strong>13:00</strong> 午後作業</li>
-          <li><strong>17:00</strong> 作業終了・片付け・帰社</li>
+          <li>
+            <strong>8:00</strong> 出社・朝礼・準備
+          </li>
+          <li>
+            <strong>9:00</strong> 現場作業開始
+          </li>
+          <li>
+            <strong>12:00</strong> 昼休憩
+          </li>
+          <li>
+            <strong>13:00</strong> 午後作業
+          </li>
+          <li>
+            <strong>17:00</strong> 作業終了・片付け・帰社
+          </li>
         </ul>
       </section>
 
       <section className={styles.section}>
         <h2>職場の雰囲気</h2>
         <div className={styles.photos}>
-          <Image src="/images/recruit/photo1.jpg" alt="現場作業" width={300} height={200} />
-          <Image src="/images/recruit/photo2.jpg" alt="オフィス風景" width={300} height={200} />
-          <Image src="/images/recruit/photo3.jpg" alt="チーム" width={300} height={200} />
+          <Image
+            src="/images/recruit/photo1.jpg"
+            alt="現場作業"
+            width={300}
+            height={200}
+          />
+          <Image
+            src="/images/recruit/photo2.jpg"
+            alt="オフィス風景"
+            width={300}
+            height={200}
+          />
+          <Image
+            src="/images/recruit/photo3.jpg"
+            alt="チーム"
+            width={300}
+            height={200}
+          />
         </div>
       </section>
 
@@ -55,7 +83,10 @@ export default function RecruitPage() {
 
       <section className={styles.section}>
         <h2>応募方法</h2>
-        <p>採用応募は <a href="/ja/contact">お問い合わせフォーム</a> またはお電話（043-258-6852）にてご連絡ください。</p>
+        <p>
+          採用応募は <Link href="/ja/contact">お問い合わせフォーム</Link>{" "}
+          またはお電話（043-258-6852）にてご連絡ください。
+        </p>
       </section>
     </main>
   );

@@ -1,46 +1,157 @@
 {
-  "Error": {
-    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
-    "title": "Something went wrong!"
-  },
-  "IndexPage": {
-    "description": "This is a basic example that demonstrates the usage of <code>next-intl</code> with the Next.js App Router. Try changing the locale in the top right corner and see how the content changes.",
-    "title": "next-intl example"
-  },
-  "LocaleLayout": {
-    "title": "next-intl example"
-  },
-  "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} other {Unknown}}"
-  },
-  "Manifest": {
-    "name": "next-intl example"
-  },
-  "Navigation": {
-    "home": "Home",
-    "pathnames": "Pathnames"
-  },
-  "NotFoundPage": {
-    "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
-    "title": "Page not found"
-  },
-  "PageLayout": {
-    "links": {
-      "docs": {
-        "description": "Learn more about next-intl in the official docs.",
-        "href": "https://next-intl.dev",
-        "title": "Docs"
-      },
-      "source": {
-        "description": "Browse the source code of this example on GitHub.",
-        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
-        "title": "Source code"
+  "HomePage": {
+    "hero": {
+      "title": "A group of professionals who illuminate the future of the region and technology",
+      "description": "From office, factory, and facility electrical work to security and communication infrastructure.\nWe provide safe and reliable construction services in the Kanto area.",
+      "cta": {
+        "consultation": "Consultation and estimate",
+        "careers": "View careers",
+        "works": "View works"
       }
+    },
+    "services": {
+      "title": "Supported construction and service list",
+      "items": {
+        "electrical": {
+          "title": "General electrical work",
+          "description": "Support for basic facilities such as distribution boards, lighting, and outlets in buildings"
+        },
+        "security": {
+          "title": "Security equipment construction",
+          "description": "Support for strengthening security and monitoring systems such as ITV cameras and access control systems"
+        },
+        "network": {
+          "title": "LAN・Network construction",
+          "description": "Support for comfortable communication environments in offices and facilities. Also supports wireless LAN and telephone wiring"
+        },
+        "fiber": {
+          "title": "Fiber optic cable splicing and measurement work",
+          "description": "Fiber optic cable construction that connects the foundation of high-speed communication, from splicing to measurement"
+        }
+      },
+      "cta": "View service details"
+    },
+    "works": {
+      "title": "Construction history",
+      "description": "Factory, office, store, etc. Experience and trust accumulated in a wide range of sites. Please also take a look at the before and after of the construction.",
+      "cta": "View all works"
+    },
+    "recruit": {
+      "title": "We are recruiting people who can grow together from inexperienced people!",
+      "description": "We offer support for obtaining qualifications and training. If you want to get a job in your hand, please let's talk once.",
+      "cta": "View recruitment information"
+    },
+    "news": {
+      "title": "Latest news and information",
+      "description": "We are reporting company activities, construction reports, and latest information on recruitment.",
+      "cta": "View more"
+    },
+    "strengths": {
+      "title": "Why Willnet is chosen",
+      "description": "Many qualified people・Established for many years・Flexible one-stop support. We have technology and experience that can respond to the diverse sites in the Kanto area.",
+      "items": {
+        "technology": {
+          "title": "Reliable technical power",
+          "description": "Construction by qualified people・Diligent response"
+        },
+        "flexibility": {
+          "title": "Flexible response",
+          "description": "Propose the best solution for any site, whether corporate or individual"
+        },
+        "experience": {
+          "title": "Reliable experience",
+          "description": "Experience in various sites・Construction"
+        }
+      }
+    },
+    "contact": {
+      "title": "Contact us",
+      "description": "For inquiries about construction, estimates, and recruitment, please use the form below or call us.",
+      "cta": "Contact form"
     }
   },
-  "PathnamesPage": {
-    "description": "<p>The pathnames are internationalized too.</p><p>If you're using the default language English, you'll see <code>/en/pathnames</code> in the browser address bar on this page.</p><p>If you change the locale to German, the URL is localized accordingly (<code>/de/pfadnamen</code>).</p>",
-    "title": "Pathnames"
+  "ServicesPage": {
+    "hero": {
+      "title": "Willnet Services",
+      "description": "Delivering reliable technology and speed across electrical, communications, and security fields."
+    },
+    "services": {
+      "electrical": {
+        "title": "General Electrical Work",
+        "catch": "Reliability in every wire.",
+        "description": "From distribution boards, lighting, and outlets to emergency power systems, we support electrical work for homes, offices, and factories with reliable technology."
+      },
+      "security": {
+        "title": "Security Systems & CCTV Installation",
+        "catch": "Protecting with technology, ensuring peace of mind.",
+        "description": "We propose and install security equipment including CCTV cameras, access control systems (IC cards, biometric authentication), security sensors, and alarm systems to protect your facility."
+      },
+      "network": {
+        "title": "LAN & Network Installation",
+        "catch": "Maximizing efficiency with uninterrupted networks.",
+        "description": "We support office IT infrastructure with LAN wiring (wired and wireless), Wi-Fi access point installation, router and HUB configuration, and network equipment implementation."
+      },
+      "fiber": {
+        "title": "Fiber Optic Installation & Fusion Splicing",
+        "catch": "Supporting high-speed communication with precision.",
+        "description": "We provide high-precision services including fiber optic installation, fusion splicing, OTDR measurement, and network construction for telecommunications companies and businesses."
+      }
+    },
+    "strengths": {
+      "title": "Willnet's Strengths",
+      "description": "Key strengths common to all our services.",
+      "items": {
+        "qualification": {
+          "title": "Many Qualified Personnel",
+          "description": "Work performed by nationally certified professionals."
+        },
+        "onestop": {
+          "title": "One-Stop Service",
+          "description": "Comprehensive support from design to construction and maintenance."
+        },
+        "local": {
+          "title": "Local Focus",
+          "description": "Rich experience in Chiba and the Kanto area."
+        }
+      }
+    },
+    "area": {
+      "title": "Service Area",
+      "description": "We serve the entire Kanto area, with a focus on Chiba Prefecture."
+    }
+  },
+  "NewsPage": {
+    "title": "News List"
+  },
+  "NewsDetailPage": {
+    "title": "News Detail"
+  },
+  "LocaleLayout": {
+    "title": "next-intl Beispiel"
+  },
+  "WorksPage": {
+    "title": "Construction Projects",
+    "catch": "Supporting your projects with reliable technology and trust.",
+    "filters": {
+      "category": "Category",
+      "area": "Area",
+      "all": "All"
+    },
+    "viewDetails": "View Details"
+  },
+  "WorkDetail": {
+    "basicInfo": "Basic Information",
+    "period": "Construction Period",
+    "area": "Construction Area",
+    "category": "Category",
+    "techPoint": "Technical Points",
+    "description": "Detailed Description",
+    "gallery": "Related Photos",
+    "backToList": "Back to List"
+  },
+  "ContactCTA": {
+    "title": "Feel Free to Contact Us",
+    "description": "For inquiries about construction, estimates, and recruitment, please use the form below or call us.",
+    "cta": "Contact Form"
   }
 }

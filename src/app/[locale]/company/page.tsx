@@ -1,5 +1,5 @@
 import styles from './company.module.scss';
-
+import Image from 'next/image';
 export default function CompanyPage() {
   return (
     <main className={styles.main}>
@@ -61,7 +61,7 @@ export default function CompanyPage() {
 
       <section className={styles.section}>
         <h2>会社外観</h2>
-        <img
+        <Image
           src="/images/company/gaikan.jpg"
           alt="ウィルネット外観"
           width={800}

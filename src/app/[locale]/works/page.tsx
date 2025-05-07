@@ -1,41 +1,61 @@
 //app/[locale]/works/page.tsx
 import { fetchWorks } from "@/lib/newt-client";
-import Image from "next/image";
-import Link from "next/link";
 import styles from "./works.module.scss";
+import { getTranslations } from 'next-intl/server';
+import ContactCTA from "@/components/ContactCTA";
+import WorksList from "@/components/WorksList";
+// Work型を定義
+interface Work {
+  _id: string;
+  title: string;
+  mainImage?: {
+    src: string;
+    altText?: string;
+  };
+  techPoint: string;
+  area: string;
+  cat: string;
+  period: string;
+  _sys: {
+    raw: {
+      publishedAt: string;
+    };
+  };
+}
 
 export default async function WorksPage() {
   const works = await fetchWorks();
-  console.log(works);
+  const t = await getTranslations('WorksPage');
+
+  // カテゴリーとエリアの一覧を取得
+  const categories = Array.from(new Set(works.map((work: Work) => work.cat))) as string[];
+  const areas = Array.from(new Set(works.map((work: Work) => work.area))) as string[];
 
   return (
     <main className={styles.main}>
-      <h1>施工実績一覧</h1>
-      <ul className={styles.cardList}>
-        {works.map((work: any) => (
-          <li key={work._id} className={styles.card}>
-            <Link href={`/ja/works/${work._id}`}>
-              <Image
-                src={work.mainImage?.src || "/images/no-image.jpg"}
-                alt={work.mainImage?.altText || work.title}
-                width={600}
-                height={400}
-              />
-              <div className={styles.text}>
-                <h2>{work.title}</h2>
-                <p>{work.techPoint.replace(/<[^>]+>/g, "").slice(0, 60)}...</p>
-                <p className={styles.meta}>
-                  {new Date(work._sys.raw.publishedAt).toLocaleDateString(
-                    "ja-JP"
-                  )}
-                  {" ／ "}
-                  {work.area}
-                </p>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {/* ヒーローセクション */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <h1>{t('title')}</h1>
+          <p className={styles.catch}>{t('catch')}</p>
+        </div>
+      </section>
+
+      {/* フィルターと作品一覧 */}
+      <WorksList 
+        works={works}
+        categories={categories}
+        areas={areas}
+        translations={{
+          category: t('filters.category'),
+          area: t('filters.area'),
+          all: t('filters.all'),
+          viewDetails: t('viewDetails')
+        }}
+      />
+
+      {/* お問い合わせCTA */}
+      <ContactCTA />
     </main>
   );
 }

@@ -1,3 +1,4 @@
+// src/lib/newt-client.ts
 const spaceUid = process.env.NEXT_PUBLIC_NEWT_SPACE_UID!;
 const apiToken = process.env.NEXT_PUBLIC_NEWT_API_TOKEN!;
 const appUid = process.env.NEXT_PUBLIC_NEWT_APP_UID!;

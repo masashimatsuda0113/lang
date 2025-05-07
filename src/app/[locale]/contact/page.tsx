@@ -1,14 +1,37 @@
 // app/[locale]/contact/page.tsx
-'use client';
-import { useEffect, useState } from 'react';
-import styles from './contact.module.scss';
+"use client";
+import { useEffect, useState } from "react";
+import styles from "./contact.module.scss";
+
+// reCAPTCHAの型チェック
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (
+        siteKey: string,
+        options: { action: string }
+      ) => Promise<string>;
+    };
+  }
+}
+
+// フォームの型定義
+type ContactForm = HTMLFormElement & {
+  elements: {
+    type: HTMLSelectElement;
+    name: HTMLInputElement;
+    email: HTMLInputElement;
+    message: HTMLTextAreaElement;
+  };
+};
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    const scriptId = 'recaptcha-script';
-    const script = document.createElement('script');
+    const scriptId = "recaptcha-script";
+    const script = document.createElement("script");
     script.id = scriptId;
     script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
     script.async = true;
@@ -19,7 +42,10 @@ export default function ContactPage() {
   const getRecaptchaToken = (): Promise<string> => {
     return new Promise((resolve, reject) => {
       window.grecaptcha.ready(() => {
-        window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, { action: 'submit' })
+        window.grecaptcha
+          .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, {
+            action: "submit",
+          })
           .then((token) => {
             resolve(token);
           })
@@ -29,49 +55,46 @@ export default function ContactPage() {
       });
     });
   };
-  
-  
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
-    const form = e.currentTarget;
+
+    const form = e.currentTarget as ContactForm;
     const data = {
-      type: form.type.value,
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value,
+      type: form.elements.type.value,
+      name: form.elements.name.value,
+      email: form.elements.email.value,
+      message: form.elements.message.value,
     };
 
     try {
       const token = await getRecaptchaToken();
-  
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, token }),
       });
-  
+
       if (res.ok) {
         setSubmitted(true);
       } else {
-        alert('送信に失敗しました');
+        alert("送信に失敗しました");
       }
     } catch (err) {
-      console.error('reCAPTCHAエラー:', err);
-      alert('reCAPTCHAの実行に失敗しました');
+      console.error("reCAPTCHAエラー:", err);
+      alert("reCAPTCHAの実行に失敗しました");
     }
   };
-  
-  
-  
-
 
   return (
     <main className={styles.main}>
       <h1>お問い合わせ</h1>
 
       {submitted ? (
-        <p className={styles.complete}>送信が完了しました。ご連絡ありがとうございました！</p>
+        <p className={styles.complete}>
+          送信が完了しました。ご連絡ありがとうございました！
+        </p>
       ) : (
         <form onSubmit={handleSubmit} className={styles.form}>
           <label>
@@ -104,7 +127,11 @@ export default function ContactPage() {
 
       <section className={styles.info}>
         <h2>お電話でのお問い合わせ</h2>
-        <p>TEL: <a href="tel:043-258-6852">043-258-6852</a><br />（平日 8:00〜17:00）</p>
+        <p>
+          TEL: <a href="tel:043-258-6852">043-258-6852</a>
+          <br />
+          （平日 8:00〜17:00）
+        </p>
 
         <h2>アクセスマップ</h2>
         <iframe
