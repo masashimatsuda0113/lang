@@ -124,10 +124,17 @@ declare const messages: {
     }
   },
   "NewsPage": {
-    "title": "ニュース一覧"
+    "title": "ニュース一覧",
+    "categories": "カテゴリー",
+    "archives": "アーカイブ",
+    "noNews": "ニュースが見つかりませんでした",
+    "filters": {
+      "all": "すべて"
+    }
   },
   "NewsDetailPage": {
-    "title": "ニュース詳細"
+    "title": "ニュース詳細",
+    "backToList": "一覧に戻る"
   },
   "LocaleLayout": {
     "title": "next-intl Beispiel"

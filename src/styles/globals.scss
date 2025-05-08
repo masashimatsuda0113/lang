@@ -1,0 +1,18 @@
+@import "./reset.scss";
+@import "./animations.scss";
+
+// 基本的なフォント設定
+body {
+  font-family: var(--font-yu-gothic), sans-serif;
+}
+
+// 見出し用のフォント設定
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-noto-serif), serif;
+}
+
+// 特別なテキスト用のフォント設定
+.special-text {
+  font-family: var(--font-minion-pro), serif;
+}
+

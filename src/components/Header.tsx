@@ -48,7 +48,12 @@ export default function Header() {
               <li><Link href="/services" onClick={closeMenu}>事業内容</Link></li>
               <li><Link href="/works" onClick={closeMenu}>施工実績</Link></li>
               <li><Link href="/company" onClick={closeMenu}>会社情報</Link></li>
-              <li><Link href="/recruit" onClick={closeMenu}>採用情報</Link></li>
+              <li>
+                <Link href="/recruit" onClick={closeMenu}>採用情報</Link>
+                <ul className={styles.subMenu}>
+                  <li><Link href="/recruit/contact" onClick={closeMenu}>エントリー</Link></li>
+                </ul>
+              </li>
               <li><Link href="/contact" onClick={closeMenu}>お問い合わせ</Link></li>
             </ul>
           </nav>

@@ -24,7 +24,7 @@ interface Work {
 }
 
 export default async function WorksPage() {
-  const works = await fetchWorks();
+  const works = await fetchWorks() as Work[];
   const t = await getTranslations('WorksPage');
 
   // カテゴリーとエリアの一覧を取得

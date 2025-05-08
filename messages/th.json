@@ -71,10 +71,17 @@
     }
   },
   "NewsPage": {
-    "title": "รายการข่าว"
+    "title": "รายการข่าว",
+    "categories": "หมวดหมู่",
+    "archives": "คลังข่าว",
+    "noNews": "ไม่พบข่าว",
+    "filters": {
+      "all": "ทั้งหมด"
+    }
   },
   "NewsDetailPage": {
-    "title": "รายละเอียดข่าว"
+    "title": "รายละเอียดข่าว",
+    "backToList": "กลับไปยังรายการ"
   },
   "LocaleLayout": {
     "title": "next-intl Beispiel"

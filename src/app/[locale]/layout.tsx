@@ -3,9 +3,11 @@ import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {ReactNode} from 'react';
 import {routing} from '@/i18n/routing';
-import './globals.scss';
+import '@/styles/globals.scss';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import {notoSerifJP, yuGothic, minionPro} from '@/lib/fonts';
+import ClientLayout from './ClientLayout';
 
 // このページの設定を定義します
 type Props = {
@@ -39,15 +41,17 @@ export default async function LocaleLayout({children, params}: Props) {
 
   // 言語の設定を保存します
   setRequestLocale(locale);
-
+  
   // ページの見た目を作ります
   return (
-    <html lang={locale}>
+    <html lang={locale} className={`${notoSerifJP.variable} ${yuGothic.variable} ${minionPro.variable}`}>
       <body>
         <NextIntlClientProvider>
-          <Header />  {/* ページの上部に表示する部分 */}
-          {children}  {/* ページのメインの内容 */}
-          <Footer />  {/* ページの下部に表示する部分 */}
+          <ClientLayout>
+            <Header />  {/* ページの上部に表示する部分 */}
+            {children}  {/* ページのメインの内容 */}
+            <Footer />  {/* ページの下部に表示する部分 */}
+          </ClientLayout>
         </NextIntlClientProvider>
       </body>
     </html>

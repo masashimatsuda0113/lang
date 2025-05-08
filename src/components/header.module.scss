@@ -112,6 +112,45 @@
             }
           }
         }
+  
+        &:hover {
+          .subMenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+          }
+        }
+  
+        .subMenu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          padding: 8px 0;
+          min-width: 160px;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(10px);
+          transition: all 0.3s ease;
+          z-index: 100;
+  
+          li {
+            a {
+              display: block;
+              padding: 8px 16px;
+              color: #333;
+              font-size: 0.9rem;
+              transition: all 0.3s ease;
+  
+              &:hover {
+                background: rgba(0, 64, 128, 0.05);
+                color: #004080;
+              }
+            }
+          }
+        }
       }
     }
   
@@ -282,6 +321,42 @@
 @media (max-width: 768px) {
   .spLangButton {
     display: block;
+  }
+
+  .header {
+    .navList {
+      &.active {
+        li {
+          .subMenu {
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            box-shadow: none;
+            padding: 0 0 0 20px;
+            background: transparent;
+            display: none;
+
+            &.active {
+              display: block;
+            }
+
+            li {
+              a {
+                padding: 10px 0;
+                font-size: 0.9rem;
+                color: #666;
+
+                &:hover {
+                  background: none;
+                  color: #004080;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
   

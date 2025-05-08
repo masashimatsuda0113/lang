@@ -121,10 +121,17 @@
     }
   },
   "NewsPage": {
-    "title": "新闻列表"
+    "title": "新闻列表",
+    "categories": "分类",
+    "archives": "归档",
+    "noNews": "未找到新闻",
+    "filters": {
+      "all": "全部"
+    }
   },
   "NewsDetailPage": {
-    "title": "新闻详情"
+    "title": "新闻详情",
+    "backToList": "返回列表"
   },
   "LocaleLayout": {
     "title": "next-intl Beispiel"

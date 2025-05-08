@@ -121,10 +121,17 @@
     }
   },
   "NewsPage": {
-    "title": "News List"
+    "title": "News List",
+    "categories": "Categories",
+    "archives": "Archives",
+    "noNews": "No news found",
+    "filters": {
+      "all": "All"
+    }
   },
   "NewsDetailPage": {
-    "title": "News Detail"
+    "title": "News Detail",
+    "backToList": "Back to List"
   },
   "LocaleLayout": {
     "title": "next-intl Beispiel"
