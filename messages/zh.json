@@ -160,5 +160,13 @@
     "title": "随时联系我们",
     "description": "关于施工、报价和招聘的咨询，请使用下面的表单或致电我们。",
     "cta": "联系表单"
+  },
+  "navigation": {
+    "services": "业务内容",
+    "works": "施工实绩",
+    "company": "公司信息",
+    "recruit": "招聘信息",
+    "recruitEntry": "应聘",
+    "contact": "联系我们"
   }
 }

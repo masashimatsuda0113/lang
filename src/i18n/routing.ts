@@ -34,6 +34,11 @@ export const routing = defineRouting({
       en: '/recruit',
       zh: '/招聘',
       th: '/รับสมัคร'
+    },
+    '/recruit/contact': {
+      en: '/recruit/contact',
+      zh: '/招聘/联系',
+      th: '/รับสมัคร/ติดต่อ'
     }
   }
 });

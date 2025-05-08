@@ -1,11 +1,11 @@
-.main {
-    padding: 40px;
-}
-
-.pageTitle {
+.title {
     font-size: 2rem;
     margin-bottom: 30px;
     text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    margin-top: 60px;
 }
 
 .templateBlock {
@@ -14,6 +14,8 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     background: #f9f9f9;
+    max-width: 1200px;
+    margin: 0 auto 30px;
 }
 
 .codeBlock {

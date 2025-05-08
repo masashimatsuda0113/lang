@@ -5,12 +5,13 @@ import styles from "./recruit.module.scss";
 import Link from "next/link";
 
 export default function RecruitPage() {
-
   return (
     <main className={styles.main}>
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1 className="animate-fade-up" data-animate>採用情報</h1>
+          <h1 className="animate-fade-up" data-animate>
+            採用情報
+          </h1>
           <p className={`${styles.catchphrase} animate-fade-up`} data-animate>
             未来をつくるのは、あなたの手。
             <br />
@@ -23,13 +24,15 @@ export default function RecruitPage() {
           <div className={styles.ctaButtons}>
             <Link
               href="/contact"
-              className={`${styles.primaryButton} animate-fade-up`} data-animate
+              className={`${styles.primaryButton} animate-fade-up`}
+              data-animate
             >
               今すぐ応募する
             </Link>
             <Link
               href="/contact"
-              className={`${styles.secondaryButton} animate-fade-up`} data-animate
+              className={`${styles.secondaryButton} animate-fade-up`}
+              data-animate
             >
               まずは話を聞きたい方はこちら
             </Link>
@@ -40,9 +43,14 @@ export default function RecruitPage() {
 
       <section className={styles.section}>
         <div className={styles.sectionInner}>
-          <h2 className="animate-fade-up" data-animate>ウィルネットの仕事とは？</h2>
+          <h2 className="animate-fade-up" data-animate>
+            ウィルネットの仕事とは？
+          </h2>
           <div className={styles.workFeatures}>
-            <div className={`${styles.workFeature} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.workFeature} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.workImage}>
                 <Image
                   src="https://images.unsplash.com/photo-1581092921461-39b9d08a9b21?q=80&w=800&auto=format&fit=crop"
@@ -60,7 +68,10 @@ export default function RecruitPage() {
                 </p>
               </div>
             </div>
-            <div className={`${styles.workFeature} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.workFeature} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.workContent}>
                 <h3>防犯設備</h3>
                 <p>
@@ -79,7 +90,10 @@ export default function RecruitPage() {
                 />
               </div>
             </div>
-            <div className={`${styles.workFeature} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.workFeature} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.workImage}>
                 <Image
                   src="https://images.unsplash.com/photo-1581092921461-39b9d08a9b21?q=80&w=800&auto=format&fit=crop"
@@ -101,44 +115,16 @@ export default function RecruitPage() {
           </div>
         </div>
       </section>
-<h2 className="sectionTitle -small -blue">
-    小さい青いタイトル
-</h2>
-
-<h2 className="sectionTitle -large -red">
-    大きい赤いタイトル
-</h2>
-
-<h2 className="sectionTitle02 -blue">会社情報</h2>
-
-<h2 className="sectionTitle03">採用情報</h2>
-
-<h2 className="sectionTitle04 -red">重要なお知らせ</h2>
-
-<h2 className="sectionTitle05" data-animate>
-  シンプルなタイトル
-</h2>
-
-
-<h2 className="sectionTitle06" data-animate>
-                サービス紹介
-            </h2>
-
-            <h2 className="sectionTitle07" data-animate>
-                施工実績
-            </h2>
-
-            <h2 className="sectionTitle08" data-animate>
-                お知らせ
-            </h2>
-
 
       <section className={styles.section}>
-
-
         <div className={styles.sectionInner}>
-          <h2 className="animate-fade-up" data-animate>社員・代表メッセージ</h2>
-          <div className={`${styles.messageContainer} animate-fade-up`} data-animate>
+          <h2 className="animate-fade-up" data-animate>
+            社員・代表メッセージ
+          </h2>
+          <div
+            className={`${styles.messageContainer} animate-fade-up`}
+            data-animate
+          >
             <div className={styles.messageImage}>
               <Image
                 src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop"
@@ -178,7 +164,10 @@ export default function RecruitPage() {
             </div>
           </div>
           <div className={styles.employeeVoices}>
-            <div className={`${styles.employeeVoice} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.employeeVoice} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.employeeImage}>
                 <Image
                   src="https://images.unsplash.com/photo-1581092921461-39b9d08a9b21?q=80&w=400&auto=format&fit=crop"
@@ -205,7 +194,9 @@ export default function RecruitPage() {
 
       <section className={styles.section}>
         <div className={styles.sectionInner}>
-          <h2 className="animate-fade-up" data-animate>一日の流れ</h2>
+          <h2 className="animate-fade-up" data-animate>
+            一日の流れ
+          </h2>
           <div className={styles.messageBox}>
             <p className="animate-fade-up" data-animate>
               毎日、ただのルーチンじゃない。
@@ -214,7 +205,10 @@ export default function RecruitPage() {
             </p>
           </div>
           <div className={styles.timeline}>
-            <div className={`${styles.timelineItem} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.timelineItem} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.time}>8:00</div>
               <div className={styles.content}>
                 <h3>出社・現場集合</h3>
@@ -227,7 +221,10 @@ export default function RecruitPage() {
                 />
               </div>
             </div>
-            <div className={`${styles.timelineItem} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.timelineItem} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.time}>10:00</div>
               <div className={styles.content}>
                 <h3>配線・機器設置</h3>
@@ -240,7 +237,10 @@ export default function RecruitPage() {
                 />
               </div>
             </div>
-            <div className={`${styles.timelineItem} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.timelineItem} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.time}>12:00</div>
               <div className={styles.content}>
                 <h3>昼休憩</h3>
@@ -253,7 +253,10 @@ export default function RecruitPage() {
                 />
               </div>
             </div>
-            <div className={`${styles.timelineItem} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.timelineItem} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.time}>13:00</div>
               <div className={styles.content}>
                 <h3>作業再開・調整</h3>
@@ -268,7 +271,10 @@ export default function RecruitPage() {
                 />
               </div>
             </div>
-            <div className={`${styles.timelineItem} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.timelineItem} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.time}>17:00</div>
               <div className={styles.content}>
                 <h3>作業終了・片付け</h3>
@@ -291,14 +297,19 @@ export default function RecruitPage() {
 
       <section className={styles.section}>
         <div className={styles.sectionInner}>
-          <h2 className="animate-fade-up" data-animate>資格取得・成長サポート</h2>
+          <h2 className="animate-fade-up" data-animate>
+            資格取得・成長サポート
+          </h2>
           <div className={styles.messageBox}>
             <p className="animate-fade-up" data-animate>
               ウィルネットは「人を育てる会社」
             </p>
           </div>
           <div className={styles.supportFeatures}>
-            <div className={`${styles.supportFeature} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.supportFeature} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.supportImage}>
                 <Image
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop"
@@ -320,7 +331,10 @@ export default function RecruitPage() {
               </div>
             </div>
 
-            <div className={`${styles.supportFeature} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.supportFeature} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.supportContent}>
                 <h3>マンツーマン指導</h3>
                 <p>
@@ -342,7 +356,10 @@ export default function RecruitPage() {
               </div>
             </div>
 
-            <div className={`${styles.supportFeature} animate-fade-up`} data-animate>
+            <div
+              className={`${styles.supportFeature} animate-fade-up`}
+              data-animate
+            >
               <div className={styles.supportImage}>
                 <Image
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop"
@@ -374,8 +391,13 @@ export default function RecruitPage() {
 
       <section className={styles.section}>
         <div className={styles.sectionInner}>
-          <h2 className="animate-fade-up" data-animate>募集要項</h2>
-          <div className={`${styles.requirements} animate-fade-up`} data-animate>
+          <h2 className="animate-fade-up" data-animate>
+            募集要項
+          </h2>
+          <div
+            className={`${styles.requirements} animate-fade-up`}
+            data-animate
+          >
             <table className={styles.requirementsTable}>
               <tbody>
                 <tr>
@@ -401,13 +423,22 @@ export default function RecruitPage() {
               </tbody>
             </table>
             <div className={styles.highlights}>
-              <div className={`${styles.highlight} animate-fade-up`} data-animate>
+              <div
+                className={`${styles.highlight} animate-fade-up`}
+                data-animate
+              >
                 未経験歓迎！
               </div>
-              <div className={`${styles.highlight} animate-fade-up`} data-animate>
+              <div
+                className={`${styles.highlight} animate-fade-up`}
+                data-animate
+              >
                 学歴不問！
               </div>
-              <div className={`${styles.highlight} animate-fade-up`} data-animate>
+              <div
+                className={`${styles.highlight} animate-fade-up`}
+                data-animate
+              >
                 20代活躍中！
               </div>
             </div>
@@ -417,7 +448,9 @@ export default function RecruitPage() {
 
       <section className={styles.section}>
         <div className={styles.sectionInner}>
-          <h2 className="animate-fade-up" data-animate>応募・お問い合わせ</h2>
+          <h2 className="animate-fade-up" data-animate>
+            応募・お問い合わせ
+          </h2>
           <div className={styles.messageBox}>
             <p className="animate-fade-up" data-animate>
               気になること、まずは話してみませんか？
@@ -425,7 +458,10 @@ export default function RecruitPage() {
               「応募する前に相談したい」そんな方も大歓迎です。
             </p>
           </div>
-          <div className={`${styles.contactButtons} animate-fade-up`} data-animate>
+          <div
+            className={`${styles.contactButtons} animate-fade-up`}
+            data-animate
+          >
             <Link href="/contact" className={styles.contactButton}>
               応募フォームへ
             </Link>

@@ -160,5 +160,13 @@
     "title": "Feel Free to Contact Us",
     "description": "For inquiries about construction, estimates, and recruitment, please use the form below or call us.",
     "cta": "Contact Form"
+  },
+  "navigation": {
+    "services": "Services",
+    "works": "Works",
+    "company": "Company",
+    "recruit": "Recruitment",
+    "recruitEntry": "Entry",
+    "contact": "Contact"
   }
 }

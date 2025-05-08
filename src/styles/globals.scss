@@ -2,9 +2,18 @@
 @import "./animations.scss";
 @import "./components/title.scss";
 @import "./components/button.scss";
+@import "./components/layout.scss";
 // 基本的なフォント設定
 body {
   font-family: var(--font-yu-gothic), sans-serif;
+  white-space: pre-line;
+}
+
+main {
+  padding-top: 87px;
+  @media (max-width: 768px) {
+    padding-top: 60px;
+  }
 }
 
 // 見出し用のフォント設定
@@ -17,3 +26,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-minion-pro), serif;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+}

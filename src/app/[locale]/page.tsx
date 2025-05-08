@@ -42,12 +42,26 @@ export default async function Home({params}: Props) {
     <main className={styles.main}>
       {/* ファーストビュー */}
       <section className={styles.hero}>
-        <h1>{t('hero.title')}</h1>
-        <p>{t('hero.description')}</p>
-        <div className={styles.buttons}>
-          <button className={styles.primaryButton}>{t('hero.cta.consultation')}</button>
-          <button className={styles.secondaryButton}>{t('hero.cta.careers')}</button>
-          <button className={styles.secondaryButton}>{t('hero.cta.works')}</button>
+        <div className={styles.videoBackground}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={styles.heroVideo}
+          >
+            <source src="/movies/hero_bg_movie.mp4" type="video/mp4" />
+          </video>
+          <div className={styles.videoOverlay}></div>
+        </div>
+        <div className={styles.heroContent}>
+          <h1>{t('hero.title')}</h1>
+          <p>{t('hero.description')}</p>
+          <div className={styles.buttons}>
+            <button className={styles.primaryButton}>{t('hero.cta.consultation')}</button>
+            <button className={styles.secondaryButton}>{t('hero.cta.careers')}</button>
+            <button className={styles.secondaryButton}>{t('hero.cta.works')}</button>
+          </div>
         </div>
       </section>
 
