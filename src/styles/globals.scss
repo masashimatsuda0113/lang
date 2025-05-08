@@ -1,6 +1,7 @@
 @import "./reset.scss";
 @import "./animations.scss";
-
+@import "./components/title.scss";
+@import "./components/button.scss";
 // 基本的なフォント設定
 body {
   font-family: var(--font-yu-gothic), sans-serif;

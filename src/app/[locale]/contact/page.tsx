@@ -21,10 +21,13 @@ declare global {
 // フォームの型定義
 type ContactForm = HTMLFormElement & {
   elements: {
-    type: HTMLSelectElement;
     name: HTMLInputElement;
+    company: HTMLInputElement;
+    phone: HTMLInputElement;
     email: HTMLInputElement;
+    type: HTMLSelectElement;
     message: HTMLTextAreaElement;
+    attachment: HTMLInputElement;
   };
 };
 
@@ -63,20 +66,25 @@ export default function ContactPage() {
     e.preventDefault();
 
     const form = e.currentTarget as ContactForm;
-    const data = {
-      type: form.elements.type.value,
-      name: form.elements.name.value,
-      email: form.elements.email.value,
-      message: form.elements.message.value,
-    };
+    const formData = new FormData();
+    formData.append("name", form.elements.name.value);
+    formData.append("company", form.elements.company.value);
+    formData.append("phone", form.elements.phone.value);
+    formData.append("email", form.elements.email.value);
+    formData.append("type", form.elements.type.value);
+    formData.append("message", form.elements.message.value);
+    
+    if (form.elements.attachment.files?.[0]) {
+      formData.append("attachment", form.elements.attachment.files[0]);
+    }
 
     try {
       const token = await getRecaptchaToken();
+      formData.append("token", token);
 
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, token }),
+        body: formData,
       });
 
       if (res.ok) {
@@ -97,57 +105,33 @@ export default function ContactPage() {
   const faqItems = [
     {
       question: "見積もりは無料ですか？",
-      answer: "はい、初回お見積もりは無料です。お気軽にご相談ください。"
+      answer: "はい、お見積もりは無料です。お気軽にお問い合わせください。"
     },
     {
-      question: "急ぎの依頼も相談できますか？",
-      answer: "スケジュールによりますが、まずはお電話またはLINEでご連絡ください。可能な限り調整します。"
+      question: "緊急対応は可能ですか？",
+      answer: "内容によりますが、可能な限り柔軟に対応します。まずはご相談ください。"
     },
     {
-      question: "小さな工事でも相談できますか？",
-      answer: "もちろんです。1件からでも対応しますので、まずはご相談ください。"
-    },
-    {
-      question: "未経験でも採用に応募できますか？",
-      answer: "大歓迎です！現場での丁寧な研修・指導体制がありますのでご安心ください。"
-    },
-    {
-      question: "LINE相談はどんな内容がOKですか？",
-      answer: "見積もり依頼・作業スケジュールの確認・簡単な質問など、幅広く受け付けています。"
+      question: "小規模の依頼でも受けてくれますか？",
+      answer: "もちろんです。個人宅から法人案件まで幅広く対応しています。"
     }
   ];
 
   return (
     <main className={styles.main}>
       <section className={styles.hero}>
-        <h1>お問い合わせ</h1>
+        <h1>業務・サービスに関するお問い合わせ</h1>
         <div className={styles.messageBox}>
           <p>
-            どんな小さなことでも、お気軽にご相談ください！
+            小さなことでもお気軽にご相談ください。
             <br />
-            見積もりのご相談、現場のご質問、採用についての疑問など、
-            <br />
-            ウィルネットはあなたの声をしっかり受け止めます。
+            法人様・個人様を問わず、電気・防犯・ネットワーク工事に関するご相談を承ります。
           </p>
-        </div>
-      </section>
-
-      <section className={styles.contactMethods}>
-        <div className={styles.method}>
-          <h2>LINEで問い合わせ</h2>
-          <p>スマホから簡単に相談できます</p>
-          <Link href="https://line.me/..." className={styles.lineButton}>
-            LINEで問い合わせる
-          </Link>
-        </div>
-
-        <div className={styles.method}>
-          <h2>お電話での問い合わせ</h2>
-          <p>お急ぎの方はお電話ください</p>
-          <a href="tel:043-258-6852" className={styles.phoneButton}>
-            043-258-6852
-            <span>（平日 8:00～17:00）</span>
-          </a>
+          <div className={styles.subMessage}>
+            <p>✅ お見積もりは無料です。</p>
+            <p>✅ 小さなことでも大丈夫、まずはお問い合わせください。</p>
+            <p>✅ お急ぎの方はお電話やLINEでのご相談も可能です。</p>
+          </div>
         </div>
       </section>
 
@@ -172,103 +156,61 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className={styles.staff}>
-        <h2>私たちが対応します</h2>
-        <div className={styles.staffContent}>
-          <div className={styles.staffImage}>
+      <section className={styles.contactMethods}>
+        <div className={styles.method}>
+          <h2>LINEで問い合わせ</h2>
+          <p>スマホから簡単に相談できます</p>
+          <Link href="https://line.me/..." className={styles.lineButton}>
+            LINEで問い合わせる
+          </Link>
+          <div className={styles.qrCode}>
             <Image
-              src="/images/staff.jpg"
-              alt="スタッフ"
-              width={300}
-              height={300}
-              className={styles.image}
+              src="/images/line-qr.png"
+              alt="LINE QRコード"
+              width={200}
+              height={200}
             />
           </div>
-          <div className={styles.staffInfo}>
-            <h3>現場経験10年以上のスタッフが直接対応</h3>
-            <p>
-              お客様のご要望をしっかりとお伺いし、
-              <br />
-              最適なご提案をさせていただきます。
-            </p>
-          </div>
+        </div>
+
+        <div className={styles.method}>
+          <h2>お電話での問い合わせ</h2>
+          <p>お急ぎの方はお電話ください</p>
+          <a href="tel:043-258-6852" className={styles.phoneButton}>
+            043-258-6852
+            <span>（平日 8:00～17:00）</span>
+          </a>
         </div>
       </section>
 
       <section className={styles.flow}>
         <h2>お問い合わせ後の流れ</h2>
-        <p className={styles.flowMessage}>
-          仕事の相談・採用の相談、どちらも大歓迎です！
-        </p>
-
-        <div className={styles.flowContainer}>
-          <div className={styles.flowType}>
-            <div className={styles.flowHeader}>
-              <span className={styles.flowIcon}>🛠</span>
-              <h3>業務・お仕事のご相談の場合</h3>
-            </div>
-            <div className={styles.flowSteps}>
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>1</div>
-                <h4>内容確認</h4>
-                <p>お問い合わせ内容を確認後、2営業日以内に担当者からご連絡します。</p>
-              </div>
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>2</div>
-                <h4>詳細ヒアリング</h4>
-                <p>必要に応じて現場調査や具体的な作業内容をヒアリングします。</p>
-              </div>
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>3</div>
-                <h4>ご提案</h4>
-                <p>お見積もり・作業日程・施工内容をご提案します。</p>
-              </div>
-            </div>
+        <div className={styles.flowSteps}>
+          <div className={styles.step}>
+            <div className={styles.stepNumber}>1</div>
+            <h4>内容確認</h4>
+            <p>担当者が内容を確認し、2営業日以内にご連絡いたします。</p>
           </div>
-
-          <div className={styles.flowType}>
-            <div className={styles.flowHeader}>
-              <span className={styles.flowIcon}>👷</span>
-              <h3>採用に関するお問い合わせの場合</h3>
-            </div>
-            <div className={styles.flowSteps}>
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>1</div>
-                <h4>内容確認</h4>
-                <p>採用担当が内容を確認し、2営業日以内にご連絡します。</p>
-              </div>
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>2</div>
-                <h4>簡単なご質問・相談</h4>
-                <p>電話・メール・LINEで気軽に相談いただけます。<br />
-                「実際の仕事内容は？」「未経験でも大丈夫？」など、<br />
-                どんな質問でも歓迎です。</p>
-              </div>
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>3</div>
-                <h4>応募・面談へ進む場合</h4>
-                <p>希望される方には、面談日程の調整をご案内します。</p>
-              </div>
-            </div>
+          <div className={styles.step}>
+            <div className={styles.stepNumber}>2</div>
+            <h4>詳細ヒアリング</h4>
+            <p>必要に応じて現地調査や打ち合わせを行います。</p>
           </div>
-        </div>
-
-        <div className={styles.recruitContact}>
-          <h3>採用に関するお問い合わせはこちら</h3>
-          <div className={styles.recruitButtons}>
-            <Link href="https://line.me/..." className={styles.recruitLineButton}>
-              LINEで採用相談
-            </Link>
-            <a href="tel:043-258-6852" className={styles.recruitPhoneButton}>
-              電話で採用担当に聞く
-              <span>（平日 8:00～17:00）</span>
-            </a>
+          <div className={styles.step}>
+            <div className={styles.stepNumber}>3</div>
+            <h4>ご提案・お見積もり</h4>
+            <p>お客様のニーズに合わせた最適なプランをご提案します。</p>
           </div>
         </div>
       </section>
 
       <section className={styles.formSection}>
-        <h2>メールフォーム</h2>
+        <h2>お問い合わせフォーム</h2>
+        <p className={styles.formDescription}>
+          以下のフォームに必要事項をご記入ください。
+          <br />
+          送信後、2営業日以内に担当者よりご連絡いたします。
+        </p>
         {submitted ? (
           <p className={styles.complete}>
             送信が完了しました。ご連絡ありがとうございました！
@@ -276,27 +218,47 @@ export default function ContactPage() {
         ) : (
           <form onSubmit={handleSubmit} className={styles.form}>
             <label>
-              お問い合わせ区分
-              <select name="type" required>
-                <option value="">選択してください</option>
-                <option value="business">業務に関するご相談</option>
-                <option value="recruit">採用について</option>
-              </select>
-            </label>
-
-            <label>
-              お名前
+              お名前 <span className={styles.required}>*</span>
               <input type="text" name="name" required />
             </label>
 
             <label>
-              メールアドレス
+              会社名（法人の場合）
+              <input type="text" name="company" />
+            </label>
+
+            <label>
+              電話番号 <span className={styles.required}>*</span>
+              <input type="tel" name="phone" required />
+            </label>
+
+            <label>
+              メールアドレス <span className={styles.required}>*</span>
               <input type="email" name="email" required />
             </label>
 
             <label>
-              お問い合わせ内容
+              お問い合わせ種別 <span className={styles.required}>*</span>
+              <select name="type" required>
+                <option value="">選択してください</option>
+                <option value="estimate">見積もり依頼</option>
+                <option value="survey">現場調査依頼</option>
+                <option value="service">サービス相談</option>
+                <option value="other">その他</option>
+              </select>
+            </label>
+
+            <label>
+              お問い合わせ内容 <span className={styles.required}>*</span>
               <textarea name="message" rows={5} required />
+            </label>
+
+            <label>
+              添付資料（任意）
+              <input type="file" name="attachment" accept=".pdf,.jpg,.jpeg,.png" />
+              <p className={styles.fileDescription}>
+                現場の写真、資料PDFなどを添付可能です。
+              </p>
             </label>
 
             <button type="submit">送信する</button>
@@ -304,15 +266,12 @@ export default function ContactPage() {
         )}
       </section>
 
-      <section className={styles.map}>
-        <h2>アクセスマップ</h2>
-        <iframe
-          src="https://www.google.com/maps?q=千葉県千葉市稲毛区長沼原町942-67&output=embed"
-          width="100%"
-          height="300"
-          style={{ border: 0 }}
-          loading="lazy"
-        />
+      <section className={styles.contactInfo}>
+        <h2>その他の連絡先</h2>
+        <div className={styles.infoContent}>
+          <p>お電話：043-258-6852（平日 8:00〜17:00／第1・第3土曜・日曜定休）</p>
+          <p>メール：info@m-willnet.com</p>
+        </div>
       </section>
     </main>
   );

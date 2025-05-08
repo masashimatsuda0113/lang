@@ -1,8 +1,11 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export const useScrollAnimation = () => {
+    const pathname = usePathname();
+
     useEffect(() => {
         const observerOptions = {
             root: null,
@@ -18,17 +21,30 @@ export const useScrollAnimation = () => {
             });
         }, observerOptions);
 
-        // animate-で始まるクラスを持つ要素を検索
-        const animatedElements = document.querySelectorAll('[class*="animate-"]');
-        
-        // 各要素を監視
-        animatedElements.forEach((el) => {
-            observer.observe(el);
-        });
+        // 既存のアニメーション要素をクリーンアップ
+        const cleanup = () => {
+            const animatedElements = document.querySelectorAll('[data-animate]');
+            animatedElements.forEach((el) => {
+                el.classList.remove('visible');
+                observer.unobserve(el);
+            });
+        };
+
+        // 新しいアニメーション要素を監視
+        const setup = () => {
+            const animatedElements = document.querySelectorAll('[data-animate]');
+            animatedElements.forEach((el) => {
+                observer.observe(el);
+            });
+        };
+
+        // 初期セットアップ
+        cleanup();
+        setup();
 
         // クリーンアップ関数
         return () => {
-            animatedElements.forEach((el) => observer.unobserve(el));
+            cleanup();
         };
-    }, []);
+    }, [pathname]); // pathnameが変更されるたびに再実行
 }; 
